@@ -53,7 +53,7 @@ The goal is to distinguish genuinely relevant replies from replies that substant
 
 ### Background workers
 
-BullMQ is used to separate expensive or recurring work from the main application flow. Workers currently handle tasks such as board monitoring and queued board spam checks.
+BullMQ is used to separate expensive or recurring work from the main application flow. Workers currently handle tasks such as board monitoring, user monitoring and queued board spam checks.
 
 ### Redis coordination
 
@@ -87,11 +87,11 @@ At a high level, the system follows this flow:
                     BullMQ queues
                          │
                     Worker processes
-               ┌─────────┴─────────┐
-               │                   │
-         Board activity       Spam analysis
-               │                   │
-               └─────────┬─────────┘
+               ┌─────────┴───────────┐
+               │         |           │
+         Board activity  user       Spam analysis
+               │       Activity      │
+               └─────────┬───────────┘
                          │
                   Event publishing
                          │
@@ -222,6 +222,35 @@ Persist activity
      ├──► Publish board:new event
      │
      └──► Queue spam analysis
+```
+
+Activity is given a deterministic `postId` derived from the relevant post/topic information and timestamp. This allows repeated polling to be filtered before unnecessary downstream work is performed.
+
+## User monitoring flow
+
+A board watch follows the general flow below:
+
+```text
+Watch request
+     │
+     ▼
+User subscription/state
+     │
+     ▼
+BullMQ User job
+     │
+     ▼
+Fetch latest User activity
+     │
+     ▼
+Compare with cached activity
+     │
+     ├── No change ──► stop
+     │
+     ▼
+Persist activity
+     │
+     └──► Publish User:new event
 ```
 
 Activity is given a deterministic `postId` derived from the relevant post/topic information and timestamp. This allows repeated polling to be filtered before unnecessary downstream work is performed.
