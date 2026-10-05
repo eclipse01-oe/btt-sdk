@@ -1,0 +1,37 @@
+{
+  "name": "btt-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsx watch ./index.ts",
+    "build": "tsc ",
+    "start": "node dist/index.js"
+  },
+  "author": "Osai",
+  "license": "ISC",
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.0",
+    "async-mutex": "^0.5.0",
+    "axios": "^1.18.0",
+    "bullmq": "^5.78.1",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "eventemitter3": "^5.0.4",
+    "ioredis": "^5.11.1",
+    "mongoose": "^9.7.0",
+    "p-queue": "^9.3.0",
+    "playwright": "^1.61.0",
+    "sentence-splitter": "^5.0.1",
+    "socket.io": "^4.8.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}

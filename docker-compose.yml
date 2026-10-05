@@ -1,0 +1,62 @@
+services:
+  app:
+    build:
+      context: .
+      network: host
+    working_dir: /app
+    command: npm run dev
+
+    ports:
+      - "3000:3000"
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+      redis:
+        condition: service_started
+
+  db:
+    image: mongo:6
+
+    container_name: mongo
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - mongo_data:/data/db
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "--quiet",
+          "--eval",
+          "db.adminCommand('ping')",
+        ]
+
+  redis:
+    image: redis:7-alpine
+    
+    container_name: redisdb
+
+    command: redis-server --appendonly yes
+
+    volumes:
+    - redis_data:/data
+
+    ports:
+      - "6379:6379"
+
+volumes:
+  mongo_data:
+  redis_data:

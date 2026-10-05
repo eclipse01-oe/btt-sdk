@@ -1,0 +1,161 @@
+# dependencies (bun install)
+node_modules
+
+# output
+auth
+out
+dist
+*.tgz
+.zip
+.zhanlu
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store
+
+.env
+.zip
+.zhanlu
+frontend/package-lock.json
+
+# =========================
+# Node.js / JavaScript
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# =========================
+# Build / Dist / Coverage
+# =========================
+dist/
+build/
+coverage/
+.tmp/
+.temp/
+.cache/
+.next/
+out/
+.vite/
+.svelte-kit/
+
+# =========================
+# Environment / Config
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# OS-specific
+# =========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.orig
+
+# =========================
+# Testing
+# =========================
+jest-html-reporters-*
+cypress/screenshots/
+cypress/videos/
+
+# =========================
+# Misc
+# =========================
+*.tgz
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+*.bak
+*.tmp
+*.orig
+
+# =========================
+# Framework-specific
+# =========================
+# React Native
+.expo/
+.expo-shared/
+
+# Angular
+.angular/
+
+# Vue
+.vuepress/
+.nuxt/
+
+# Svelte
+.svelte-kit/
+
+# Next.js
+.next/
+out/
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+.docker/
+
+# =========================
+# Local databases
+# =========================
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.md
