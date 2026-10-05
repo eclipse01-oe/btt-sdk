@@ -2,7 +2,7 @@
 
 A TypeScript SDK and background-processing toolkit for working with Bitcointalk data and automation.
 
-> **Status:** Beta — `1.0.0`
+> **Status:** Beta — `0.1.0`
 >
 > The API and internal architecture are still evolving. Full end-to-end testing is ongoing.
 
